@@ -110,6 +110,7 @@
     <Compile Include="ScreenshotHelper.cs" />
     <Compile Include="select_element.cs" />
     <Compile Include="waithelper.cs" />
+    <Compile Include="WindowFrameAlertUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
