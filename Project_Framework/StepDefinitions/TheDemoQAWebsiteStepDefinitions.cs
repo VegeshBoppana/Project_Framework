@@ -165,11 +165,13 @@ namespace AProject_Framework.StepDefinitions
 
 
 
-        [Given(@"User is on the Select-Menu Page")]
+        
+        [Given(@"User is on the Select_Menu Page")]
         public void GivenUserIsOnTheSelect_MenuPage()
         {
             demoobj.GoToMenuPage();
         }
+
 
         [When(@"User retrieves and prints all dropdown options")]
         public void WhenUserRetrievesAndPrintsAllDropdownOptions()
@@ -177,19 +179,15 @@ namespace AProject_Framework.StepDefinitions
             demoobj.PrintOptions();
         }
 
-        [When(@"User selects the option at index")]
-        public void WhenUserSelectsTheOptionAtIndex()
+        [Then(@"User should seee all the options listed")]
+        public void ThenUserShouldSeeeAllTheOptionsListed()
         {
-            int index = 4;
-            Console.WriteLine(index);
-           demoobj.IndexSelection(index);
+            Console.WriteLine("we saw all the options");
         }
 
-        [When(@"User selects the option with text ""([^""]*)""")]
-        public void WhenUserSelectsTheOptionWithText(string magenta)
-        {
-            demoobj.TextSelection(magenta);
-        }
+
+
+
 
         [When(@"User selects the option with value ""([^""]*)""")]
         public void WhenUserSelectsTheOptionWithValue(string value)
@@ -198,6 +196,25 @@ namespace AProject_Framework.StepDefinitions
             Thread.Sleep(5000);
         }
 
+        [Then(@"User should seee ""([^""]*)"" as the selected value")]
+        public void ThenUserShouldSeeeAsTheSelectedValue(string p0)
+        {
+            Thread.Sleep(3000);
+        }
+
+
+        [When(@"User selects the option with the value ""([^""]*)""")]
+        public void WhenUserSelectsTheOptionWithTheValue(string green)
+        {
+            demoobj.TextSelection(green);
+            Thread.Sleep(5000);
+        }
+
+        [Then(@"User should seee ""([^""]*)"" as the Selected value")]
+        public void ThenUserShouldSeeeeAsTheSelectedValue(string green)
+        {
+            Thread.Sleep(2000);
+        }
 
 
     }

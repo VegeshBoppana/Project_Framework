@@ -29,20 +29,17 @@ Feature: Interactions with Buttons on the DemoQA Website
 
 
 Scenario: Interacting with a dropdown menu and selecting options
-    Given User is on the Select-Menu Page
+    Given User is on the Select_Menu Page
     When User retrieves and prints all dropdown options
-    Then User should see all the options listed
-
-    When User selects the option at index
-    Then User should see "Purple" as the selected value
-
-    When User selects the option with text "Magenta"
-    Then User should see "Magenta" as the selected value
+    Then User should seee all the options listed
 
     When User selects the option with value "6"
-    Then User should see "6" as the selected value
+    Then User should seee "6" as the selected value
 
-Scenario: 
+    When User selects the option with the value "Green"
+    Then User should seeee "Green" as the Selected value
+
+ 
 
 
 

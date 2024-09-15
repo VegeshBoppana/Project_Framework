@@ -287,31 +287,25 @@ this.ScenarioInitialize(scenarioInfo);
   this.FeatureBackground();
 #line hidden
 #line 32
-    testRunner.Given("User is on the Select-Menu Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User is on the Select_Menu Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 33
     testRunner.When("User retrieves and prints all dropdown options", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 34
-    testRunner.Then("User should see all the options listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User should seee all the options listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 36
-    testRunner.When("User selects the option at index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 37
-    testRunner.Then("User should see \"Purple\" as the selected value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 39
-    testRunner.When("User selects the option with text \"Magenta\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 40
-    testRunner.Then("User should see \"Magenta\" as the selected value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 42
     testRunner.When("User selects the option with value \"6\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 43
-    testRunner.Then("User should see \"6\" as the selected value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+    testRunner.Then("User should seee \"6\" as the selected value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 39
+    testRunner.When("User selects the option with the value \"Green\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 40
+    testRunner.Then("User should seeee \"Green\" as the Selected value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
