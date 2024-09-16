@@ -55,6 +55,7 @@ namespace Utilities
                 PollingInterval = pollingtime,
                 Message = "Element not found within the time period"
             };
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             return fluentWait.Until(ExpectedConditions.ElementExists(locator));
         }
 

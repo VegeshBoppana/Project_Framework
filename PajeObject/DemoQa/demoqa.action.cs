@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Utilities;
 
@@ -38,9 +39,9 @@ namespace PajeObject.DemoQa
 
         public bool DoubleClickButtonText(string text)
         {
-            
-           string ans = driver_helper.GetText(driver, DoubleClickMessage);
-            if(ans == text)
+
+            string ans = driver_helper.GetText(driver, DoubleClickMessage);
+            if (ans == text)
             {
                 return true;
             }
@@ -94,7 +95,7 @@ namespace PajeObject.DemoQa
         }
         public void SelectYesButton()
         {
-            IWebElement yesradiores = driver_helper.FindElementSafe(driver,yesRadio);
+            IWebElement yesradiores = driver_helper.FindElementSafe(driver, yesRadio);
 
             if (yesradiores.Enabled)
             {
@@ -172,5 +173,150 @@ namespace PajeObject.DemoQa
             SelectUtilities.SelectByValue(driver.FindElement(Old_Style_Menu), value);  // Uses the dropdown element
         }
 
+
+
+        public void GoToBrowserWindows()
+        {
+            driver_helper.GoToPage(driver, BrowserWindows);
+        }
+
+        public void ClickNewTabButton()
+        {
+            driver_helper.ClickElement(driver, NewTabButton);
+        }
+
+        public void ShiftToNewTab()
+        {
+            WindowFrameAlertUtilities.SwitchToNewTab(driver);
+            string text = driver_helper.GetText(driver, NewTabContent);
+            Console.WriteLine(text);
+            Thread.Sleep(2000);
+            driver.Close();
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
+        }
+
+        public void ClickNewWindowButton()
+        {
+            driver_helper.ClickElement(driver, NewWindowButton);
+
+        }
+
+        public void ShiftToNewWindow()
+        {
+            WindowFrameAlertUtilities.SwitchToNewWindow(driver);
+            string text = driver_helper.GetText(driver, NewWindowMessage);
+            Console.WriteLine(text);
+            Thread.Sleep(2000);
+            driver.Close();
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
+        }
+
+        public void ClickNewWindowMessageButton()
+        {
+            driver_helper.ClickElement(driver, NewWindowMessageButton);
+        }
+
+        public void ShiftToNewWindowMessage()
+        {
+            WindowFrameAlertUtilities.SwitchToNewWindow(driver);
+            string text = driver_helper.GetText(driver, NewWindowMessageButtonMessage);
+            Console.WriteLine(text);
+            Thread.Sleep(2000);
+            driver.Close();
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
+        }
+
+
+        public void GotToAlertsPage()
+        {
+            driver_helper.GoToPage(driver, alertspage);
+        }
+
+        public void ClickMeeButton()
+        {
+            driver_helper.ClickElement(driver, ClickMeButton);
+        }
+
+        public void AlertForClickMEButton()
+        {
+            WindowFrameAlertUtilities.HandleAlert(driver);
+        }
+
+        public void ClickTimerAlertButton()
+        {
+            driver_helper.ClickElement(driver, TimerAlertButton);
+        }
+
+        public void AlertForTimerAlertButton()
+        {
+            Thread.Sleep(6000);
+            WindowFrameAlertUtilities.HandleAlert(driver);
+        }
+
+        public void ClickConfirmButton()
+        {
+            driver_helper.ClickElement(driver, ConfirmButton);
+        }
+
+
+
+
+        public void AlertForConfirmButtonAccept()
+        {
+            WindowFrameAlertUtilities.HandleAlert(driver);
+        }
+
+
+        public bool OutputConfirmation(string message)
+        {
+            string ans = driver_helper.GetText(driver, Outputgenerated);
+            Console.WriteLine(ans);
+            Console.WriteLine("here");
+            if (ans == message)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void AlertForConfirmButtonCacel()
+        {
+            WindowFrameAlertUtilities.CancelAlert(driver);
+        }
+
+        public void ClickPromptButton()
+        {
+            driver_helper.ClickElement(driver, PromptButton);
+        }
+
+        public void AlertForPromptButton(string input)
+        {
+            WindowFrameAlertUtilities.promptBoxAlert(driver, input);
+
+        }
+
+
+
+        public void GoToProgressPage()
+        {
+            driver_helper.GoToPage(driver, "https://demoqa.com/progress-bar");
+        }
+
+        public void ClickProgressBar()
+        {
+            driver_helper.ClickElement(driver, progressstartbutton);
+           
+        }
+
+
+        public void ClickResetProgressBar()
+        {
+            
+         waithelper.FluentWait(driver, TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(3), resetprogressbutton).Click();
+         
+        }
     }
 }

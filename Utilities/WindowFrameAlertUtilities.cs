@@ -18,8 +18,6 @@ public static class WindowFrameAlertUtilities
             {
                 driver.SwitchTo().Window(window);
                 Console.WriteLine("Switched to new tab: " + window);
-                driver.Close();
-                break;
             }
         }
     }
@@ -29,6 +27,8 @@ public static class WindowFrameAlertUtilities
     {
         var originalWindow = driver.CurrentWindowHandle;
         var allWindows = driver.WindowHandles;
+        var count = driver.WindowHandles.Count;
+        Console.WriteLine("Number of windows: " + count);
 
         foreach (var window in allWindows)
         {
@@ -36,8 +36,9 @@ public static class WindowFrameAlertUtilities
             {
                 driver.SwitchTo().Window(window);
                 Console.WriteLine("Switched to new window: " + window);
-                driver.Close();
-                break;
+                driver.Manage().Window.Maximize();
+
+
             }
         }
     }
@@ -85,5 +86,28 @@ public static class WindowFrameAlertUtilities
         {
             Console.WriteLine("No alert present.");
         }
+    }
+
+    public static void CancelAlert(IWebDriver driver) {
+        try
+        {
+            IAlert alert = driver.SwitchTo().Alert();
+            Console.WriteLine("Alert message: " + alert.Text);
+            alert.Dismiss();
+            Console.WriteLine("Alert dismissed.");
+        }
+        catch (NoAlertPresentException)
+        {
+            Console.WriteLine("No alert present.");
+        }
+    }
+
+
+
+    public static void promptBoxAlert(IWebDriver driver,string input)
+    {
+        IAlert promptalert = driver.SwitchTo().Alert();
+        promptalert.SendKeys(input);
+        promptalert.Accept();
     }
 }

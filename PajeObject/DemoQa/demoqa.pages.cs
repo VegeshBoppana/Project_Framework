@@ -46,8 +46,35 @@ namespace PajeObject.DemoQa
         protected By Old_Style_Menu => By.Id("oldSelectMenu");
 
 
+        protected string BrowserWindows = "https://demoqa.com/browser-windows";
+
+
+        protected By NewTabButton => By.XPath("//button[@id = 'tabButton']");
+        protected By NewTabContent => By.XPath("//h1[@id = 'sampleHeading']");
+        protected By NewWindowButton => By.XPath("//button[@id = 'windowButton']");
+        protected By NewWindowMessage => By.XPath("//h1[@id = 'sampleHeading']");
+
+        protected By NewWindowMessageButton => By.XPath("//button[@id = 'messageWindowButton']");
+        protected By NewWindowMessageButtonMessage => By.TagName("//body");
+
+        protected string alertspage = "https://demoqa.com/alerts";
+
+        protected By ClickMeButton => By.XPath("//button[@id = 'alertButton']");
+
+        protected By TimerAlertButton => By.XPath("//button[@id = 'timerAlertButton']");
+
+        protected By ConfirmButton => By.XPath("//button[@id = 'confirmButton']");
+
+        protected By Outputgenerated => By.XPath("//span[@id = 'confirmResult']");
+
+        protected By PromptButton => By.XPath("//button[@id = 'promtButton']");
 
 
 
+
+
+        protected string progrssbarpage = "https://demoqa.com/progress-bar";    
+        protected By progressstartbutton => By.XPath("//button[@id = 'startStopButton']");
+        protected By resetprogressbutton => By.XPath("//button[@id = 'resetButton']");
     }
 }

@@ -21,6 +21,7 @@ using BoDi;
 using Utilities;
 using PajeObject.DemoQa;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace AProject_Framework.StepDefinitions
 {
@@ -186,11 +187,16 @@ namespace AProject_Framework.StepDefinitions
         }
 
 
+        [When(@"User selects the option with the value (.*)")]
+        public void WhenUserSelectsTheOptionWithTheValue(int index)
+        {
+            demoobj.IndexSelection(index);
+        }
 
 
 
-        [When(@"User selects the option with value ""([^""]*)""")]
-        public void WhenUserSelectsTheOptionWithValue(string value)
+        [When(@"User selects the option with valuee ""([^""]*)""")]
+        public void WhenUserSelectsTheOptionWithValuee(string value)
         {
             demoobj.ValueSelection(value);
             Thread.Sleep(5000);
@@ -203,18 +209,209 @@ namespace AProject_Framework.StepDefinitions
         }
 
 
-        [When(@"User selects the option with the value ""([^""]*)""")]
-        public void WhenUserSelectsTheOptionWithTheValue(string green)
+        [When(@"User selects the option with the valuee ""([^""]*)""")]
+        public void WhenUserSelectsTheOptionWithTheValuee(string green)
         {
             demoobj.TextSelection(green);
             Thread.Sleep(5000);
         }
 
-        [Then(@"User should seee ""([^""]*)"" as the Selected value")]
+       
+
+
+        [Then(@"User should seeee ""([^""]*)"" as the Selected value")]
         public void ThenUserShouldSeeeeAsTheSelectedValue(string green)
         {
+            Thread.Sleep(3000);
+        }
+
+
+
+        [Given(@"User is on the WindowHandles Page")]
+        public void GivenUserIsOnTheWindowHandlesPage()
+        {
+            demoobj.GoToBrowserWindows();
+        }
+
+        [When(@"User clicks on the NewTab")]
+        public void WhenUserClicksOnTheNewTab()
+        {
+            demoobj.ClickNewTabButton();
+        }
+
+        [Then(@"User should print the content in the new tab")]
+        public void ThenUserShouldPrintTheContentInTheNewTab()
+        {
+            demoobj.ShiftToNewTab();
+        }
+
+        [When(@"the user clicks on the NewWindow")]
+        public void WhenTheUserClicksOnTheNewWindow()
+        {
+            demoobj.ClickNewWindowButton();
+        }
+
+        [Then(@"User should print the content in the new Window")]
+        public void ThenUserShouldPrintTheContentInTheNewWindow()
+        {
+            demoobj.ShiftToNewWindow();
+        }
+
+
+
+        [When(@"the user clicks on the New Window Message")]
+        public void WhenTheUserClicksOnTheNewWindowMessage()
+        {
+            demoobj.ClickNewWindowMessageButton();
+        }
+
+        [Then(@"User should print the content in the new Window message")]
+        public void ThenUserShouldPrintTheContentInTheNewWindowMessage()
+        {
+            demoobj.ShiftToNewWindowMessage();
+        }
+
+
+
+
+        [Given(@"the user is on the Alerts Page")]
+        public void GivenTheUserIsOnTheAlertsPage()
+        {
+           demoobj.GotToAlertsPage();
+        }
+
+        [When(@"the user clicks on the first Click Me button")]
+        public void WhenTheUserClicksOnTheFirstClickMeButton()
+        {
+            demoobj.ClickMeeButton();
+        }
+
+        [Then(@"an alert should be displayed")]
+        public void ThenAnAlertShouldBeDisplayed()
+        {
+            Thread.Sleep(1500);
+        }
+
+        [Then(@"the user clicks OK on the alert")]
+        public void ThenTheUserClicksOKOnTheAlert()
+        {
+            demoobj.AlertForClickMEButton();
+        }
+
+
+        [When(@"the user clicks on the second Click Me")]
+        public void WhenTheUserClicksOnTheSecondClickMe()
+        {
+            demoobj.ClickTimerAlertButton();
+        }
+
+        [Then(@"the user should see an alert after (.*) seconds")]
+        public void ThenTheUserShouldSeeAnAlertAfterSeconds(int p0)
+        {
+            demoobj.AlertForTimerAlertButton();
+        }
+
+
+
+
+
+
+        [When(@"the user clicks on the confirm box")]
+        public void WhenTheUserClicksOnTheConfirmBox()
+        {
+            demoobj.ClickConfirmButton();
+        }
+
+        [Then(@"an alert with OK and Cancel options should be displayed")]
+        public void ThenAnAlertWithOKAndCancelOptionsShouldBeDisplayed()
+        {
+            Thread.Sleep(1000);
+        }
+
+        [When(@"the user clicks on OK")]
+        public void WhenTheUserClicksOnOK()
+        {
+            demoobj.AlertForConfirmButtonAccept();
+        }
+
+        [Then(@"the output ""([^""]*)"" should be displayed")]
+        public void ThenTheOutputShouldBeDisplayed(string p0)
+        {
+            bool ans = demoobj.OutputConfirmation(p0);  
+            if(ans is true)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+
+
+
+        [When(@"the user clicks on Cancel")]
+        public void WhenTheUserClicksOnCancel()
+        {
+            demoobj.AlertForConfirmButtonCacel();
+        }
+
+
+
+
+
+
+
+        [When(@"the user clicks on the prompt button")]
+        public void WhenTheUserClicksOnThePromptButton()
+        {
+            demoobj.ClickPromptButton();
+        }
+
+        [Then(@"an alert with a field to enter the name should be displayed")]
+        public void ThenAnAlertWithAFieldToEnterTheNameShouldBeDisplayed()
+        {
+            Thread.Sleep(1000);
+        }
+
+        [When(@"the user enters the name ""([^""]*)""")]
+        public void WhenTheUserEntersTheName(string vegesh)
+        {
+            demoobj.AlertForPromptButton(vegesh);
             Thread.Sleep(2000);
         }
+
+        [When(@"the user clicks OK")]
+        public void WhenTheUserClicksOK()
+        {
+            demoobj.ClickConfirmButton();
+        }
+
+
+
+
+
+
+
+        [Given(@"the user is in the Progress Bar")]
+        public void GivenTheUserIsInTheProgressBar()
+        {
+            demoobj.GoToProgressPage();
+        }
+
+        [When(@"the user clicks on the srtat the progress bar starts moving")]
+        public void WhenTheUserClicksOnTheSrtatTheProgressBarStartsMoving()
+        {
+            demoobj.ClickProgressBar();
+        }
+
+        [Then(@"the user should see reset after sometime and clicks on it")]
+        public void ThenTheUserShouldSeeResetAfterSometimeAndClicksOnIt()
+        {
+            demoobj.ClickResetProgressBar();
+        }
+
 
 
     }
