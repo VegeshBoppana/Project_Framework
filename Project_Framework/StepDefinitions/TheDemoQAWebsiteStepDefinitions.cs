@@ -132,8 +132,6 @@ namespace AProject_Framework.StepDefinitions
 
 
 
-
-
         [Given(@"User is on the Radio Button Page")]
         public void GivenUserIsOnTheRadioButtonPage()
         {
@@ -161,10 +159,6 @@ namespace AProject_Framework.StepDefinitions
         {
             Thread.Sleep(5000);
         }
-
-
-
-
 
         
         [Given(@"User is on the Select_Menu Page")]
@@ -314,8 +308,6 @@ namespace AProject_Framework.StepDefinitions
 
 
 
-
-
         [When(@"the user clicks on the confirm box")]
         public void WhenTheUserClicksOnTheConfirmBox()
         {
@@ -360,9 +352,6 @@ namespace AProject_Framework.StepDefinitions
 
 
 
-
-
-
         [When(@"the user clicks on the prompt button")]
         public void WhenTheUserClicksOnThePromptButton()
         {
@@ -392,8 +381,6 @@ namespace AProject_Framework.StepDefinitions
 
 
 
-
-
         [Given(@"the user is in the Progress Bar")]
         public void GivenTheUserIsInTheProgressBar()
         {
@@ -413,6 +400,72 @@ namespace AProject_Framework.StepDefinitions
         }
 
 
+
+
+        [Given(@"the user in the frames page")]
+        public void GivenTheUserInTheFramesPage()
+        {
+            demoobj.GoToFrameWebsite();
+        }
+
+
+        [When(@"User shifts from default content to frameone")]
+        public void WhenUserShiftsFromDefaultContentToFrameone()
+        {
+            demoobj.GoToFrameOne();
+        }
+
+        [Then(@"user should print the data in it")]
+        public void ThenUserShouldPrintTheDataInIt()
+        {
+            demoobj.PrintContentinFrameOne();
+        }
+
+
+
+
+        [Given(@"the user is in the frames page and in frameone")]
+        public void GivenTheUserIsInTheFramesPageAndInFrameone()
+        {
+            demoobj.GoToFrameWebsite();
+            demoobj.GoToFrameOne();
+
+        }
+        
+
+        [When(@"user shifts from frameone to frametwo")]
+        public void WhenUserShiftsFromFrameoneToFrametwo()
+        {
+           demoobj.GoToMainPage();
+            demoobj.GoToFrameTwo();
+        }
+
+        [Then(@"user should print the data in the frametwo")]
+        public void ThenUserShouldPrintTheDataInTheFrametwo()
+        {
+            demoobj.PrintContentinFrameTwo();
+        }
+
+
+
+        [Given(@"User is in the framertwo")]
+        public void GivenUserIsInTheFramertwo()
+        {
+            demoobj.GoToFrameWebsite();
+            demoobj.GoToFrameOne();
+        }
+
+        [When(@"user user moves frame to main page")]
+        public void WhenUserUserMovesFrameToMainPage()
+        {
+            demoobj.GoToMainPage();
+        }
+
+        [Then(@"User should print the data in the main page")]
+        public void ThenUserShouldPrintTheDataInTheMainPage()
+        {
+            demoobj.PrintMainPageContent();
+        }
 
     }
 }

@@ -76,5 +76,13 @@ namespace PajeObject.DemoQa
         protected string progrssbarpage = "https://demoqa.com/progress-bar";    
         protected By progressstartbutton => By.XPath("//button[@id = 'startStopButton']");
         protected By resetprogressbutton => By.XPath("//button[@id = 'resetButton']");
+
+
+
+        protected By frameone => By.XPath("//iframe[@id = 'frame1']");
+
+        protected By frametwo => By.XPath("//iframe[@id = 'frame2']");
+
+        protected By MainContent => By.XPath("//div[@id = 'framesWrapper']");
     }
 }

@@ -98,6 +98,27 @@ Then the user should see reset after sometime and clicks on it
 
 
 
+Scenario: Implementing the Frames in the Frames Page
+Given the user in the frames page
+When User shifts from default content to frameone
+Then user should print the data in it
+
+Scenario: Moving from one frame to another frame
+Given the user is in the frames page and in frameone
+When user shifts from frameone to frametwo
+Then user should print the data in the frametwo
+
+Scenario: Moving from one frame to MainPage
+Given User is in the framertwo
+When user user moves frame to main page
+Then User should print the data in the main page
+
+
+
+
+
+
+
 
 
 

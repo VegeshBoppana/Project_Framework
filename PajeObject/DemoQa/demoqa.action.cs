@@ -308,15 +308,55 @@ namespace PajeObject.DemoQa
         public void ClickProgressBar()
         {
             driver_helper.ClickElement(driver, progressstartbutton);
-           
+
         }
 
 
         public void ClickResetProgressBar()
         {
-            
-         waithelper.FluentWait(driver, TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(3), resetprogressbutton).Click();
-         
+
+            waithelper.FluentWait(driver, TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(3), resetprogressbutton).Click();
+
+        }
+
+
+        public void GoToFrameWebsite()
+        {
+            driver_helper.GoToPage(driver, "https://demoqa.com/frames");
+
+        }
+        public void GoToFrameOne()
+        {
+            WindowFrameAlertUtilities.SwitchToFrameByName(driver, "frame1");
+        }
+
+        public void PrintContentinFrameOne()
+        {
+           var ans =  driver_helper.GetText(driver, NewTabContent);
+            Console.WriteLine(ans);
+        }
+
+        public void GoToFrameTwo()
+        {
+            WindowFrameAlertUtilities.SwitchToFrameByName(driver, "frame2");
+        }
+
+        public void PrintContentinFrameTwo()
+        {
+            var ans = driver_helper.GetText(driver, NewTabContent);
+            Console.WriteLine(ans);
+        }
+
+
+        public void GoToMainPage()
+        {
+            WindowFrameAlertUtilities.SwitchToDefaultContent(driver);
+        }
+
+        public void PrintMainPageContent()
+        {
+           var ans = driver_helper.GetText(driver, MainContent);  
+            Console.WriteLine(ans);
         }
     }
 }
