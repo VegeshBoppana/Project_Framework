@@ -12,7 +12,7 @@ namespace Utilities
             {
                 // Using fully qualified name for Selenium's Screenshot class
                 OpenQA.Selenium.Screenshot photo = ((ITakesScreenshot)driver).GetScreenshot();
-                string directoryPath = @"C:\Users\vegeshsai_boppana\source\repos\Project_Framework\Project_Framework\Screenshots\";
+                string directoryPath = @"C:\Users\vegeshsai_boppana\source\repos\UIFramework\Project_Framework\Project_Framework\Screenshots\";
                 string screenshotFileName = $"Wrong_{DateTime.Now:yyyyMMdd_HHmmss}.png";
                 string filePath = Path.Combine(directoryPath, screenshotFileName);
                 Directory.CreateDirectory(directoryPath);  // Create directory if it does not exist

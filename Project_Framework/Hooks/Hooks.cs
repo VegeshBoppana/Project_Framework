@@ -4,9 +4,12 @@ using BoDi;
 using System;
 using System.IO;
 using Utilities;
+using Utilities.Reports;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Gherkin.Model;
 
 [Binding]
-public class Hooks
+public class Hooks : ExtReoprt
 {
     private readonly IObjectContainer _container;
 
@@ -14,6 +17,42 @@ public class Hooks
     {
         _container = container;
     }
+
+
+   
+    [BeforeTestRun]
+    public static void BeforeTestRun()
+    {
+        ExtReoprt.ExtentReportInit();
+    }
+
+    [AfterTestRun]
+    public static void AfterTestRun()
+    {
+        ExtReoprt.ExtentReportTearDown();
+    }
+
+
+   
+
+
+    [BeforeFeature]
+    public static void BeforeFeature(FeatureContext featureContext)
+    {
+        _feature = _extentReports.CreateTest<Feature>(featureContext.FeatureInfo.Title);
+    }
+
+
+
+    [BeforeScenario]
+    public static void FirstBeforeScenario(ScenarioContext scenarioContext)
+    {
+        _scenario = _feature.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
+    }
+
+
+
+
 
     [BeforeScenario]
     public void InitializeWebDriver()

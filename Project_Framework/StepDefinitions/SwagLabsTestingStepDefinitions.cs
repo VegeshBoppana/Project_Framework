@@ -68,7 +68,7 @@ namespace AProject_Framework.StepDefinitions
         [When(@"User enter a valid username and password from '([^']*)' file")]
         public void WhenIEnterAValidUsernameAndPasswordFromFile(string csvFileName)
         {
-            string filePath = "C:\\Users\\vegeshsai_boppana\\source\\repos\\Project_Framework\\Project_Framework\\TestFolder\\data.csv";
+            string filePath = "C:\\Users\\vegeshsai_boppana\\source\\repos\\UIFramework\\Project_Framework\\Project_Framework\\TestFolder\\data.csv";
             _userData = LoadCsvData(filePath);
 
             foreach (var user in _userData)
@@ -267,16 +267,18 @@ namespace AProject_Framework.StepDefinitions
             string titlename = checkobj.GetTitleName();  // Ensure this gets the correct title
             Console.WriteLine(titlename);  // Print the title for debugging
 
-            ScenarioContext.Current["TitleName"] = titlename;  // Store in ScenarioContext
+            _scenarioContext["TitleName"] = titlename; // Set value
+                                                       // Store in ScenarioContext
         }
 
-      
+
 
         // Then step with correct usage of ScenarioContext
         [Then(@"User should see (.*)")]
         public void ThenUserShouldSeeExpectedResult(string ExpectedResult)
         {
-            string titlename = (string)ScenarioContext.Current["TitleName"];  // Retrieve stored value
+            string titlename = _scenarioContext.Get<string>("TitleName");
+            // Retrieve stored value
             Console.WriteLine(titlename);  // Print title for debugging
             Console.WriteLine(ExpectedResult);
             if (titlename == ExpectedResult)
