@@ -11,7 +11,7 @@ namespace Utilities
             if (driver != null)
             {
                 // Using fully qualified name for Selenium's Screenshot class
-                OpenQA.Selenium.Screenshot photo = ((ITakesScreenshot)driver).GetScreenshot();
+                Screenshot photo = ((ITakesScreenshot)driver).GetScreenshot();
                 string directoryPath = @"C:\Users\vegeshsai_boppana\source\repos\UIFramework\Project_Framework\Project_Framework\Screenshots\";
                 string screenshotFileName = $"Wrong_{DateTime.Now:yyyyMMdd_HHmmss}.png";
                 string filePath = Path.Combine(directoryPath, screenshotFileName);
@@ -33,25 +33,17 @@ namespace Utilities
                     try
                     {
                         File.Delete(file);
-
                     }
-
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
                 }
             }
-
             else
             {
                 Console.WriteLine("Directory donot exist");
             }
         }
-    }
-
-
-    
+    }   
 }
-
-

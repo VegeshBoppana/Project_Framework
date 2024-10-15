@@ -12,7 +12,6 @@ namespace PajeObject.DemoQa
 {
     public partial class demoqa_action
     {
-
         private readonly IWebDriver driver;
         private IJavaScriptExecutor jsExecutor;
 

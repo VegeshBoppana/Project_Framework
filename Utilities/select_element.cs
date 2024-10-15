@@ -13,7 +13,11 @@ public static class SelectUtilities
         Console.WriteLine("Selected value by index: " + select.SelectedOption.Text);
     }
 
-    // Method to select an option by visible text
+    /// <summary>
+    /// Method to select an option by visible text
+    /// </summary>
+    /// <param name="dropdownElement">Element locator of dropdown</param>
+    /// <param name="text">Text to be selected</param>
     public static void SelectByText(IWebElement dropdownElement, string text)
     {
         SelectElement select = new SelectElement(dropdownElement);
